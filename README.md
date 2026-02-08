@@ -3,9 +3,11 @@ cli benchmark tool in basic terms
 
 * Basic CLI Benchmark Tool * 
 
+includes: searching and sorting algorithms 
 
 file directorey -> cmd -> run: python main.py -> output:
 
 
 
-<img width="838" height="310" alt="image" src="https://github.com/user-attachments/assets/060f69c9-aba7-4283-819e-d0103302505b" />
+<img width="854" height="468" alt="image" src="https://github.com/user-attachments/assets/5d0f8f40-398f-407e-8ec6-9f9e92619bed" />
+
