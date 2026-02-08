@@ -32,3 +32,27 @@ def run_benchmark(func, data, iterations=5):
         memory_usage.append(peak / 1024)
 
     return statistics.median(times), statistics.median(memory_usage)
+
+
+def run_search_benchmark(func, data, target, iterations=10):
+    if func.__name__ == "binary_search":
+        data = sorted(data)
+
+    times = []
+    memory_usage = []
+
+    for _ in range(iterations):
+        tracemalloc.start()
+        start_t = time.perf_counter_ns()
+
+        func(data, target)
+
+        end_t = time.perf_counter_ns()
+        _, peak = tracemalloc.get_traced_memory()
+        tracemalloc.stop()
+
+        times.append((end_t - start_t) / 1_000_000)  # ms
+        memory_usage.append(peak / 1024)  # KB
+
+    return statistics.median(times), statistics.median(memory_usage)
+    
